@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { DetailsPage } from '../pages/DetailsPage'
 import { Home } from '../pages/Home'
 import { Pokedex } from '../pages/Pokedex'
@@ -9,18 +9,20 @@ export const Router = () => {
 
         <BrowserRouter>
             <Switch>
+                <Route exact path={'/pokedex/id'}>
+                    <DetailsPage />
+                </Route>
+
+
+                <Route exact path={'/pokedex'}>
+                    <Pokedex />
+                </Route>
+
 
                 <Route exatc path={'/'}>
                     <Home />
                 </Route>
 
-                <Route exact path={'/pokedex'}  >
-                    <Pokedex />
-                </Route>
-
-                <Route exact path={'/pokedex/id'}  >
-                    <DetailsPage />
-                </Route>
 
             </Switch>
         </BrowserRouter>

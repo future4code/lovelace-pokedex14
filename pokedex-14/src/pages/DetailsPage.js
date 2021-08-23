@@ -14,7 +14,7 @@ export const DetailsPage = () => {
   
     return (
     <div>
-    Detalhes Pokemons
+    <h1>Detalhes Pokemons</h1>
     <button onClick = {goToPokedex}>Ir para Pokedex</button>
     <button onClick = {goToBack}>Voltar</button>
     </div>
