@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { DetailsPage } from '../pages/DetailsPage'
-import { Home } from '../pages/Home'
-import { Pokedex } from '../pages/Pokedex'
+import { DetailsPage } from '../pages/DetailPage/DetailsPage'
+import { Home } from '../pages/Home/Home'
+import { Pokedex } from '../pages/Pokedex/Pokedex'
 
 export const Router = () => {
     return (
@@ -10,16 +10,16 @@ export const Router = () => {
         <BrowserRouter>
             <Switch>
 
-                <Route exatc path={'/'}>
-                    <Home />
-                </Route>
-
                 <Route exact path={'/pokedex'}  >
                     <Pokedex />
                 </Route>
 
                 <Route exact path={'/pokedex/id'}  >
                     <DetailsPage />
+                </Route>
+
+                <Route exact path={'/'}>
+                    <Home />
                 </Route>
 
             </Switch>
