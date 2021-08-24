@@ -1,23 +1,33 @@
-import React from 'react'
+import React from 'react';
 import { useHistory } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+
 
 export const Home = () => {
-    const history = useHistory()
- 
-    const goToPokedex = () =>{
-        history.push('/pokedex')
-    }
-    const goToDetailsPoke = () =>{
-        history.push('/pokedex/id')
-    }
+  const history = useHistory()
+
+  const goToPokedex = () => {
+    history.push('/pokedex')
+  }
+  const goToDetailsPoke = () => {
+    history.push('/pokedex/id')
+  }
 
 
   return (
     <div>
-      <h1>Lista de Pokemons</h1>
-      <button onClick = {goToPokedex}> Ir Para Pokedex</button>
-      <button> Adicionar a Pokedex </button>
-      <button onClick = {goToDetailsPoke}> Ver Detalhes </button>
+
+       <img height={150} src={"https://imagensemoldes.com.br/wp-content/uploads/2020/04/Pok%C3%A9mon-Com-Fundo-Transparente-1280x720.png"} />
+      
+      <Button onClick={goToPokedex} variant="contained" color="primary">
+        Ir Para Pokedex
+      </Button>
+      <Button variant="contained" color="secondary">
+        Adicionar a Pokedex
+      </Button>
+      <Button onClick={goToDetailsPoke} variant="contained" color="primary">
+        Ver Detalhes
+      </Button>
     </div>
   );
 }
