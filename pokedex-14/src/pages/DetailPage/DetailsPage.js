@@ -1,11 +1,11 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { ImagesDiv, StatsDiv, MoveDiv, TypeDiv, ContainerDetails, ContainerTypeMoves } from './DetailStyles'
 import Button from '@material-ui/core/Button';
+import useRequestData from '../../hooks/useRequestData';
 
 export const DetailsPage = () => {
   const history = useHistory()
-
 
   const goToPokedex = () =>{
       history.push('/pokedex')
@@ -14,6 +14,17 @@ export const DetailsPage = () => {
       history.goBack()
   }
   
+const params = useParams()
+
+const pokemon = useRequestData(`https://pokeapi.co/api/v2/pokemon/${params.nome}`,{})
+console.log(pokemon)
+
+
+
+
+
+
+
     return (
     <div>
     <h1>Detalhes Pokemons</h1>
