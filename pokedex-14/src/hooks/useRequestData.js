@@ -8,7 +8,7 @@ const useRequestData = (url, initialState) =>{
     useEffect(()=>{
         axios
         .get(url)
-        .then(()=> setData(res.data))
+        .then((res)=> setData(res.data))
         .catch((err)=>console.log(err))
     },[url])
     

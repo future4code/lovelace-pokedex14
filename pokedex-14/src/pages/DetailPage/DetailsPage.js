@@ -20,11 +20,6 @@ const pokemon = useRequestData(`https://pokeapi.co/api/v2/pokemon/${params.nome}
 console.log(pokemon)
 
 
-
-
-
-
-
     return (
     <div>
     <h1>Detalhes Pokemons</h1>
@@ -32,31 +27,30 @@ console.log(pokemon)
     <ContainerDetails>
 
     <ImagesDiv>
-
-    <img src={'https://static.pokemonpets.com/images/monsters-images-800-800/253-Grovyle.webp'} alt={'pokemon'} />
-    <img src={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/493.png'} alt={'pokemon'} />
-
+    {pokemon.name && <h1>{pokemon.name}</h1>}
+    {pokemon.sprites && pokemon.sprites.front_default && (<img src={pokemon.sprites.front_default} alt={'pokemon'} />)}
+    {pokemon.sprites && pokemon.sprites.back_default && (<img src={pokemon.sprites.back_default} alt={'pokemon'} />)}
     </ImagesDiv>
 
     <StatsDiv>
-      <p>HP</p>
-      <p>Attack</p>
-      <p>Defense</p>
-      <p>Special-Attack</p>
-      <p>Special-defence</p>
-      <p>Speed</p>
+      <p>HP:{pokemon.stats && pokemon.stats[0].base_stat && (<h4>{pokemon.stats[0].base_stat}</h4>)}</p>
+      <p>Attack:{pokemon.stats && pokemon.stats[1].base_stat && (<h4>{pokemon.stats[1].base_stat}</h4>)}</p>
+      <p>Defense:{pokemon.stats && pokemon.stats[2].base_stat && (<h4>{pokemon.stats[2].base_stat}</h4>)}</p>
+      <p>Special-Attack:{pokemon.stats && pokemon.stats[3].base_stat && (<h4>{pokemon.stats[3].base_stat}</h4>)}</p>
+      <p>Special-defence:{pokemon.stats && pokemon.stats[4].base_stat && (<h4>{pokemon.stats[4].base_stat}</h4>)}</p>
+      <p>Speed:{pokemon.stats && pokemon.stats[5].base_stat && (<h4>{pokemon.stats[5].base_stat}</h4>)}</p>
     </StatsDiv>
 
     <ContainerTypeMoves>
       <TypeDiv>
-        <p> TYPE 1 / TYPE 2</p>
+        <p>Types:{pokemon.types && pokemon.types[0].type.name && [<p>{pokemon.types[0].type.name}</p>]}</p>
       </TypeDiv>
       
       <MoveDiv>
-        <h4>Moves</h4>
-        <p> Move name 1</p>
-        <p> Move name 2</p>
-        <p> Move name 3</p>
+      <h1>Moves</h1>
+        <p>{pokemon.moves && pokemon.moves[0].move.name && (<h4>{pokemon.moves[0].move.name}</h4>)}</p>
+        <p>{pokemon.moves && pokemon.moves[1].move.name && (<h4>{pokemon.moves[1].move.name}</h4>)}</p>
+        <p>{pokemon.moves && pokemon.moves[2].move.name && (<h4>{pokemon.moves[2].move.name}</h4>)}</p>
       </MoveDiv>
     </ContainerTypeMoves>
 

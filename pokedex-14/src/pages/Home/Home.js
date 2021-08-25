@@ -21,19 +21,15 @@ export const Home = () => {
 const pokemonsComponents = pokemonsList.results && pokemonsList.results.map((poke)=>{
   return  <button onClick = {()=> goToDetailsPoke(poke.name)} key={poke.name}>{poke.name}</button>
 })
-
-
-
-
+console.log(pokemonsList)
   return (
     <div>
-        <div>{pokemonsComponents}</div>
-
-       <img height={150} src={"https://imagensemoldes.com.br/wp-content/uploads/2020/04/Pok%C3%A9mon-Com-Fundo-Transparente-1280x720.png"} />
       
-      <Button onClick={goToPokedex} variant="contained" color="primary">
+       <Button onClick={goToPokedex} variant="contained" color="primary">
         Ir Para Pokedex
       </Button>
+       <img height={150} src={"https://imagensemoldes.com.br/wp-content/uploads/2020/04/Pok%C3%A9mon-Com-Fundo-Transparente-1280x720.png"} />
+      <div>{pokemonsComponents}</div>
       <Button variant="contained" color="secondary">
         Adicionar a Pokedex
       </Button>
