@@ -16,7 +16,7 @@ export const Pokedex = () => {
 const history= useHistory()
 
 const goToDetailsPoke = () =>{
-    history.push('/pokedex/id')
+    history.push('/details/:nome')
 }
 
 const goBackTolistPoke = () =>{
