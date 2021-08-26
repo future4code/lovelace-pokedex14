@@ -35,7 +35,7 @@ export const theme = createTheme({
 //   });
 
 // export const ButtonDetails = styled(Button)({
-   
+//   margin: 'auto'
 // });
 
 // export const ButtonBack = styled(Button)({

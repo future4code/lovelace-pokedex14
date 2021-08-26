@@ -1,42 +1,62 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import useRequestData from '../../hooks/useRequestData';
+import CardPokemonHome from './CardPokemonHome'
+import { ContainerHomePokemons, ContainerHome, ImagePokemonHome } from "./HomeStyles";
+import { ButtonPokedex } from './HomeStylesMaterial';
+
+
+
 
 
 export const Home = () => {
+
   const history = useHistory()
 
   const goToPokedex = () => {
     history.push('/pokedex')
   }
-  const goToDetailsPoke = (name) => {
-    history.push(`/details/${name}`)
-  }
+  // const goToDetailsPoke = (name) => {
+  //   history.push(`/details/${name}`)
+  // }
 
- const pokemonsList = useRequestData("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0",{})
+  const pokemonsList = useRequestData("https://pokeapi.co/api/v2/pokemon?limit=20&offset=0", {})
 
- 
 
-const pokemonsComponents = pokemonsList.results && pokemonsList.results.map((poke)=>{
-  return  <button onClick = {()=> goToDetailsPoke(poke.name)} key={poke.name}>{poke.name}</button>
-})
-console.log(pokemonsList)
+  //  const pokemonsComponents = pokemonsList.results && pokemonsList.results.map((poke)=>{
+  //    return  <button onClick = {()=> goToDetailsPoke(poke.name)} key={poke.name}>{poke.name}</button>
+
+  //   })
+
+  const renderizaPokemon = pokemonsList.results && pokemonsList.results.map((pokemon) => {
+    return <CardPokemonHome
+      name={pokemon.name}
+      pokemon={pokemon}
+    />
+
+  })
+  console.log(pokemonsList)
+
   return (
-    <div>
-      
-       <Button onClick={goToPokedex} variant="contained" color="primary">
+    <ContainerHome>
+
+      <ImagePokemonHome height={150} src={"https://imagensemoldes.com.br/wp-content/uploads/2020/04/Pok%C3%A9mon-Com-Fundo-Transparente-1280x720.png"} alt={'pokemon'} />
+      <ButtonPokedex onClick={goToPokedex} variant="contained" color="secondary">
         Ir Para Pokedex
-      </Button>
-       <img height={150} src={"https://imagensemoldes.com.br/wp-content/uploads/2020/04/Pok%C3%A9mon-Com-Fundo-Transparente-1280x720.png"} />
-      <div>{pokemonsComponents}</div>
-      <Button variant="contained" color="secondary">
+      </ButtonPokedex>
+      {/* <div>{pokemonsComponents}</div> */}
+      {/* <Button variant="contained" color="secondary">
         Adicionar a Pokedex
       </Button>
       <Button onClick={goToDetailsPoke} variant="contained" color="primary">
         Ver Detalhes
-      </Button>
-    </div>
+      </Button> */}
+
+      <ContainerHomePokemons>
+        {renderizaPokemon && renderizaPokemon}
+      </ContainerHomePokemons>
+    </ContainerHome>
   );
 }
 

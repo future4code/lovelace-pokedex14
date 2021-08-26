@@ -3,6 +3,7 @@ import { Header } from './components/Header/Header';
 import { Router } from './route/Router'
 import { createGlobalStyle } from 'styled-components';
 
+
 function App() {
 
   const GlobalStyle = createGlobalStyle`
@@ -18,11 +19,12 @@ function App() {
   /* Outros estilos globais */
 `;
   return (
-  <div>
-    <GlobalStyle/>
-    <Header />
-    <Router/>
-  </div>
+    <div>
+      <GlobalStyle />
+      <Header />
+      <Router />
+
+    </div>
   );
 }
 
