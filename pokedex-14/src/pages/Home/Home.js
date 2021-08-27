@@ -6,10 +6,6 @@ import CardPokemonHome from './CardPokemonHome'
 import { ContainerHomePokemons, ContainerHome, ImagePokemonHome } from "./HomeStyles";
 import { ButtonPokedex } from './HomeStylesMaterial';
 
-
-
-
-
 export const Home = () => {
 
   const history = useHistory()
