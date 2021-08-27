@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom';
 import DeleteIcon from '@material-ui/icons/Delete'
 import { ThemeProvider } from '@material-ui/styles';
@@ -10,9 +10,12 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import GlobalStateContext from '../../global/GlobalStateContext';
+import { PokedexCard } from './PokedexCard';
 
 
 export const Pokedex = () => {
+const {state, setters, requests} = useContext(GlobalStateContext)
 const history= useHistory()
 
 const goToDetailsPoke = () =>{
@@ -23,14 +26,27 @@ const goBackTolistPoke = () =>{
     history.push('/')
 }
 
+
+const renderPokedex = () => {
+    if (state.pokedex.length === 0){
+      return <h1>Pokedex vazia</h1>
+    }
+
+    return state.pokedex && state.pokedex.map((pokemon) => {
+        <PokedexCard pokemon={pokemon} key={pokemon.name}/>
+    })
+
+}
+
   return (
     <div>
    <ThemeProvider theme={theme}>
 
    <Image src={'https://cdn2.bulbagarden.net/upload/4/4b/Pok%C3%A9dex_logo.png'} alt={'pokedex'} />
 
+    {renderPokedex()}
 
-    <ContainerPokemons>
+    {/* <ContainerPokemons>
    <CardPokemon >
       <CardActionArea>
         <CardMedia
@@ -86,7 +102,7 @@ const goBackTolistPoke = () =>{
         </Button>
       </CardActions>
     </CardPokemon>
-        </ContainerPokemons>
+        </ContainerPokemons> */}
 
         <Button variant="outlined" color="link" onClick={goBackTolistPoke}>
   Voltar Para a Home

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { useHistory } from 'react-router-dom';
 import useRequestData from '../../hooks/useRequestData';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -10,8 +10,10 @@ import Typography from '@material-ui/core/Typography';
 import { ButtonDetails } from "./HomeStylesMaterial";
 // import Box from '@material-ui/core/Box';
 import { ContainerCardHome, ImageCardPokemon } from "./HomeStyles";
+import GlobalStateContext from "../../global/GlobalStateContext";
 
 export default function CardPokemonHome(props) {
+    const {state, setters, requests} = useContext(GlobalStateContext)
     const history = useHistory()
 
     const goToDetailsPoke = (name) => {
@@ -27,20 +29,20 @@ export default function CardPokemonHome(props) {
 
 
             <CardActionArea>
-                <CardMedia
-                />
+                {/* <CardMedia
+                /> */}
                 <CardContent>
-                    {pokemon.sprites && pokemon.sprites.front_default && (<ImageCardPokemon src={pokemon.sprites.front_default} alt={'pokemon'} />)}
+                {pokemon.sprites && pokemon.sprites.other.dream_world.front_default && (<ImageCardPokemon src={pokemon.sprites.other.dream_world.front_default} alt={'pokemon'} />)}
                     <Typography gutterBottom variant="h5" component="h2">
                         {pokemon.name}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <ButtonDetails size="small" color="link" variant="outlined" onClick={() => goToDetailsPoke(pokemon.name)} key={pokemon.name}>
+                    <ButtonDetails size="small" color="primary" variant="outlined" onClick={() => goToDetailsPoke(pokemon.name)} key={pokemon.name}>
                         Detalhes
                     </ButtonDetails>
-                    <ButtonDetails size="small" color="link" variant="outlined" key={pokemon.name}>
-                        Adiconar à pokedex
+                    <ButtonDetails size="small" color="primary" variant="contained" onClick={() => setters.addToPokedex(pokemon)} key={pokemon.name}>
+                        Adicionar à pokedex
                     </ButtonDetails>
                 </CardActions>
             </CardActionArea>
