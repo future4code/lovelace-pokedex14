@@ -33,4 +33,5 @@ export const ContainerCardHome = styled.div`
 
 export const ImageCardPokemon = styled.img`
     width: 150px; 
+    height: 150px;
 `

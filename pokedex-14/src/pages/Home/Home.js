@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 // import Button from '@material-ui/core/Button';
 import useRequestData from '../../hooks/useRequestData';
@@ -30,7 +30,7 @@ export const Home = () => {
   //   })
 
   const renderizaPokemon = pokemonsList.results && pokemonsList.results.map((pokemon) => {
-    return <CardPokemonHome
+    return <CardPokemonHome 
       name={pokemon.name}
       pokemon={pokemon}
     />

@@ -2,6 +2,7 @@ import React from 'react'
 import { Header } from './components/Header/Header';
 import { Router } from './route/Router'
 import { createGlobalStyle } from 'styled-components';
+import { GlobalState } from './global/GlobalState';
 
 
 function App() {
@@ -19,12 +20,12 @@ function App() {
   /* Outros estilos globais */
 `;
   return (
-    <div>
+    <GlobalState>
       <GlobalStyle />
       <Header />
       <Router />
 
-    </div>
+    </GlobalState>
   );
 }
 
