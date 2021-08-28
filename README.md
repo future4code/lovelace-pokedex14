@@ -5,7 +5,7 @@ Nome dos integrantes:
 - João Paulo
 - Guilherme Henrique
 
-Link do Surge: lively-spark.surge.sh
+Link do Surge: https://lively-spark.surge.sh/
 
 O que funciona:
 - Item 1
