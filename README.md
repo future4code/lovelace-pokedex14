@@ -8,9 +8,10 @@ Nome dos integrantes:
 Link do Surge: https://lively-spark.surge.sh/
 
 O que funciona:
-- Item 1
-- Item 2
+- Home: o usuário recebe uma lista de pokemons vinda da API.
+- Detalhe do Pokemon: É possível ir para uma página de detalhes do Pokemon ao clicar no mesmo estando na Home.
 
 O que não funciona: 
-- Item 3
-- Item 4
+- Home: O usuario pode armazenar Pokemons em sua Pokedex clicando em cada um.
+- Pokedex: o usuário deve pode ver os Pokemons que foram adicionados em sua Pokedex. 
+
